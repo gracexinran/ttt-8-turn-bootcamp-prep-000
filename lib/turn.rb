@@ -20,8 +20,7 @@ def position_taken?(board, index)
 end
 
 def valid_move?(board, index)
-  (index >= 0 && index <= 8 && !position_taken?(board, index))?
-  "A" : "B"
+  index >= 0 && index <= 8 && !position_taken?(board, index)
 end
 
 def move(board, index, mark = "X")
@@ -32,7 +31,7 @@ def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
   index = input_to_index(user_input)
-  while valid_move?(board, index) == "B"
+  while !valid_move?(board, index)
     puts "Please enter 1-9:"
     user_input = gets.strip
     index = input_to_index(user_input)
